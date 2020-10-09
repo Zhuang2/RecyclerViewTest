@@ -32,10 +32,15 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         //数据初始化
         initFruits()
-        //设置布局方式为 线性布局管理器
-        RecyclerViewTest.layoutManager=LinearLayoutManager(this)
-        //实例化适配器设置到控件上
+        //创建线性布局管理器
+        val layoutManager = LinearLayoutManager(this)
+        //设置线性方向为横向
+        layoutManager.orientation = LinearLayoutManager.HORIZONTAL
+        //设置布局管理器
+        RecyclerViewTest.layoutManager=layoutManager
+        //实例化数据适配器，装载数据
         val adapter =FruitAdapter(fruitList)
+        //实例化适配器设置到控件上
         RecyclerViewTest.adapter = adapter
     }
 }
